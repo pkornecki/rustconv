@@ -11,19 +11,19 @@ use input::InputRow;
 use output::OutputRow;
 
 /// Run the conversion asynchronously.
-pub async fn run() -> Result<(), Box<dyn Error>> {
+pub async fn run(input: PathBuf, output: PathBuf, hotels: PathBuf) -> Result<(), Box<dyn Error>> {
     // create a hotel map
-    let hotels = HotelMap::new(PathBuf::from("hotels.json")).await?;
+    let hotels = HotelMap::new(hotels).await?;
 
     // create a reader
     let mut reader = ReaderBuilder::new()
         .delimiter(b'|')
-        .from_path(PathBuf::from("input.csv"))?;
+        .from_path(input)?;
 
     // create a writer
     let mut writer = WriterBuilder::new()
         .delimiter(b';')
-        .from_path(PathBuf::from("output.csv"))?;
+        .from_path(output)?;
 
     // process each input record
     for record in reader.records() {
