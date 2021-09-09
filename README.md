@@ -7,8 +7,9 @@ Some concepts used:
 - csv/json serialization/deserialization
 - asynchronous processing
 - command line arguments parsing
-- modularization
 - error handling
+- modularization
+- unit/integration tests
 - and more
 
 ## Input format: 
