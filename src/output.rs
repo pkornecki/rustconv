@@ -76,4 +76,3 @@ impl<'a> OutputRow<'a> {
         format!("{:.2}", price.ceil() / 100.0)
     }
 }
-

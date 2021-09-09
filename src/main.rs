@@ -9,7 +9,11 @@ use cli::CommandLineArgs;
 #[tokio::main]
 async fn main() {
     // get command line arguments
-    let CommandLineArgs { input, output, hotels } = CommandLineArgs::from_args();
+    let CommandLineArgs {
+        input,
+        output,
+        hotels,
+    } = CommandLineArgs::from_args();
 
     let input = input
         .or_else(|| Some(PathBuf::from("input.csv")))

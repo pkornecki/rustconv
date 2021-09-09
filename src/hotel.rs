@@ -143,3 +143,36 @@ struct HotelRow {
     country_code: String,
     city: String,
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    /// An auxiliary function to create a HotelMap.
+    #[test]
+    fn create_hotel_map() {
+        let mut result = HotelMap {
+            map: HashMap::new(),
+        };
+        result.add(
+            String::from("BER00002"),
+            Hotel {
+                name: String::from("Crowne Plaza Berlin City Centre"),
+                category: 4.0,
+                city: String::from("Berlin"),
+            },
+        );
+        result.add(
+            String::from("BER00003"),
+            Hotel {
+                name: String::from("Berlin Marriott Hotel"),
+                category: 5.0,
+                city: String::from("Berlin"),
+            },
+        );
+
+        assert_eq!(2, result.map.len());
+        assert!(result.map.contains_key("BER00002"));
+        assert!(result.map.contains_key("BER00003"));
+    }
+}
