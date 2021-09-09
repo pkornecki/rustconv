@@ -1,7 +1,7 @@
 # rustconv
 
 rustconv is a program written in Rust, that converts input file(`input.csv`) into output file(`output.csv`).
-Some data which is necessary for the converion is taken from the `hotel.json` file.
+Some data which is necessary for the converion is taken from the `hotels.json` file.
 
 Some concepts used:
 - csv/json serialization/deserialization
